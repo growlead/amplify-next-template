@@ -8,6 +8,7 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 import { useAuthenticator } from "@aws-amplify/ui-react";
+import { FileUploader } from "@aws-amplify/ui-react-storage";
 
 Amplify.configure(outputs);
 
@@ -40,6 +41,7 @@ export default function App() {
   return (
     <main>
       <h1>My todos</h1>
+      <DefaultFileUploaderExample />
       <button onClick={signOut}>Sign out</button>
       <button onClick={createTodo}>+ new</button>
       <ul>
@@ -59,3 +61,14 @@ export default function App() {
     </main>
   );
 }
+
+const DefaultFileUploaderExample = () => {
+  return (
+    <FileUploader
+      acceptedFileTypes={["safetensors/*"]}
+      path="public/"
+      maxFileCount={1}
+      isResumable
+    />
+  );
+};
