@@ -4,8 +4,8 @@ import { data } from './data/resource.js';
 
 import { storage } from './storage/resource';
 
-defineBackend({
-  auth,
-  data,
+const backend = defineBackend({
+  // auth,
+  // data,
   storage
 });

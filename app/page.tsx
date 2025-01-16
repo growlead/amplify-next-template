@@ -16,7 +16,7 @@ const client = generateClient<Schema>();
 
 export default function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-  const { signOut } = useAuthenticator();
+  // const { signOut } = useAuthenticator();
 
   function listTodos() {
     client.models.Todo.observeQuery().subscribe({
@@ -42,7 +42,7 @@ export default function App() {
     <main>
       <h1>My todos</h1>
       <DefaultFileUploaderExample />
-      <button onClick={signOut}>Sign out</button>
+      {/* <button onClick={signOut}>Sign out</button> */}
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (
@@ -67,7 +67,7 @@ const DefaultFileUploaderExample = () => {
     <FileUploader
       acceptedFileTypes={["safetensors/*"]}
       path="public/"
-      maxFileCount={1}
+      maxFileCount={15}
       isResumable
     />
   );
